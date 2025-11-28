@@ -1,0 +1,63 @@
+﻿@model BalancedSoccerTeam.Models.Player
+
+@{
+    ViewData["Title"] = "Edit Player";
+}
+
+<h1>Edit Player</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="BallControl" class="control-label"></label>
+                <input asp-for="BallControl" class="form-control" type="number" min="1" max="100" />
+                <span asp-validation-for="BallControl" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PassingAccuracy" class="control-label"></label>
+                <input asp-for="PassingAccuracy" class="form-control" type="number" min="1" max="100" />
+                <span asp-validation-for="PassingAccuracy" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Dribbling" class="control-label"></label>
+                <input asp-for="Dribbling" class="form-control" type="number" min="1" max="100" />
+                <span asp-validation-for="Dribbling" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DefensiveAwareness" class="control-label"></label>
+                <input asp-for="DefensiveAwareness" class="form-control" type="number" min="1" max="100" />
+                <span asp-validation-for="DefensiveAwareness" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Shooting" class="control-label"></label>
+                <input asp-for="Shooting" class="form-control" type="number" min="1" max="100" />
+                <span asp-validation-for="Shooting" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

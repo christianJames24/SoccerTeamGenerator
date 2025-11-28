@@ -1,0 +1,53 @@
+﻿@model BalancedSoccerTeam.Models.TeamResultViewModel
+
+@{
+    ViewData["Title"] = "Team Results";
+}
+
+<h1>Generated Teams</h1>
+
+<div class="row">
+    @foreach (var team in Model.Teams)
+    {
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>Team @team.TeamNumber</h4>
+                    <h5>Total Skill Score: @team.TotalSkillScore.ToString("F1")</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Score</th>
+                                <th>Rank</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var player in team.Players)
+                            {
+                                <tr>
+                                    <td>@player.Name</td>
+                                    <td>@player.OverallScore.ToString("F1")</td>
+                                    <td>@player.Rank</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-action="SelectPlayers" class="btn btn-primary">Generate New Teams</a>
+<a asp-action="Index" class="btn btn-secondary">Back to Players</a>
+@* ```
+
+## Run Migrations
+
+Open Package Manager Console in Visual Studio and run:
+```
+Add-Migration InitialCreate
+Update-Database *@

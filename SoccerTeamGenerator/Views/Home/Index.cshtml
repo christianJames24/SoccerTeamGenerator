@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Balanced Soccer Team Generator</h1>
+    <p class="lead">Manage players and generate balanced teams for your soccer club</p>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Players</h5>
+                    <p class="card-text">Add, edit, or remove players from your roster.</p>
+                    <a asp-controller="Players" asp-action="Index" class="btn btn-primary">View Players</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add New Player</h5>
+                    <p class="card-text">Register a new player with skill ratings.</p>
+                    <a asp-controller="Players" asp-action="Create" class="btn btn-success">Add Player</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Generate Teams</h5>
+                    <p class="card-text">Create balanced teams from available players.</p>
+                    <a asp-controller="Players" asp-action="SelectPlayers" class="btn btn-info">Generate Teams</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
